@@ -10,9 +10,9 @@ describe "weather for city API endpoint" do
     weather = JSON.parse(response.body)
 
     expect(weather).to be_a(Hash)
-    expect(weather).to have_key(:data)
-    expect(weather[:data]).to have_key(:location)
-    expect(weather[:data][:location]).to eq('Denver, CO')
-    expect(weather[:data]).to have_key(:weather)
+    expect(weather).to have_key('data')
+    expect(weather['data']).to have_key('location')
+    expect(weather['data']['location']).to eq('denver,co')
+    expect(weather['data']).to have_key('weather')
   end
 end
