@@ -37,10 +37,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 #added
-gem 'active_model_serializers', '0.10'
 gem 'figaro'
 gem 'faraday'
 gem 'newrelic_rpm'
+# gem 'active_model_serializers', '0.10'
+gem 'fast_jsonapi'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
