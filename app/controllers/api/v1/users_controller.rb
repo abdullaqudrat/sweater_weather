@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :authenticate_request
 
   def create
     user = User.new(email: request.headers[:email], password: request.headers[:password], password_confirmation: request.headers[:password_confirmation])
