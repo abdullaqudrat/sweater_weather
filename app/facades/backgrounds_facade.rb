@@ -1,6 +1,5 @@
 class BackgroundsFacade
 
-
   def initialize(location)
     @location = location
   end
