@@ -9,8 +9,12 @@ class BackgroundsFacade
     BackgroundSerializer.new(retrieve_image_links.sample).serializable_hash
   end
 
-  def retrieve_image_links
-    geocode_data = GeocodeService.new(@location).formatted_address_and_coordinates
-    BackgroundImageService.new(geocode_data).get_backgrounds
-  end
+  private
+    def retrieve_image_links
+      BackgroundImageService.new(geocode_data).get_backgrounds
+    end
+
+    def geocode_data
+      GeocodeService.new(@location).formatted_address_and_coordinates
+    end
 end
