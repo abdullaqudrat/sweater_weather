@@ -13,7 +13,9 @@ describe "delete favorites api" do
     login_response = JSON.parse(response.body)
     login_api_key = login_response['api_key']
 
-    delete "/api/v1/favorites", headers: {'api_key': login_api_key, 'location': favorite_1.location}
+    VCR.use_cassette("delete_favorite") do
+      delete "/api/v1/favorites", headers: {'api_key': login_api_key, 'location': favorite_1.location}
+    end
 
     expect(response).to be_successful
 
@@ -39,7 +41,9 @@ describe "delete favorites api" do
     login_response = JSON.parse(response.body)
     login_api_key = login_response['api_key']
 
-    delete "/api/v1/favorites"
+    VCR.use_cassette("delete_favorite") do
+      delete "/api/v1/favorites"
+    end
 
     expect(response.status).to eq(401)
   end
@@ -55,8 +59,10 @@ describe "delete favorites api" do
     login_response = JSON.parse(response.body)
     login_api_key = login_response['api_key']
 
-    delete "/api/v1/favorites", headers: {'api_key': login_api_key, 'location': favorite_2.location}
-
+    VCR.use_cassette("delete_favorite") do
+      delete "/api/v1/favorites", headers: {'api_key': login_api_key, 'location': favorite_2.location}
+    end
+    
     expect(response.status).to eq(400)
   end
 end

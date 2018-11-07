@@ -3,7 +3,9 @@ require "rails_helper"
 describe "background image for city API endpoint" do
   it "request will return JSON of image for city" do
 
-    get '/api/v1/backgrounds?location=denver,co'
+    VCR.use_cassette("background") do
+      get '/api/v1/backgrounds?location=denver,co'
+    end
 
     expect(response).to be_successful
 

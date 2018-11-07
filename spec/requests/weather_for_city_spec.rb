@@ -3,7 +3,9 @@ require "rails_helper"
 describe "weather for city API endpoint" do
   it "request will return JSON of weather for a city" do
 
-    get '/api/v1/forecast?location=denver,co'
+    VCR.use_cassette("weather") do
+      get '/api/v1/forecast?location=denver,co'
+    end
 
     expect(response).to be_successful
 

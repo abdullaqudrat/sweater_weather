@@ -13,7 +13,9 @@ describe "get favorites api" do
     login_response = JSON.parse(response.body)
     login_api_key = login_response['api_key']
 
-    get "/api/v1/favorites", headers: {'api_key': login_api_key}
+    VCR.use_cassette("favorites") do
+      get "/api/v1/favorites", headers: {'api_key': login_api_key}
+    end
 
     expect(response).to be_successful
 
@@ -39,7 +41,9 @@ describe "get favorites api" do
     login_response = JSON.parse(response.body)
     login_api_key = login_response['api_key']
 
-    get "/api/v1/favorites"
+    VCR.use_cassette("favorites") do
+      get "/api/v1/favorites"
+    end
 
     expect(response.status).to eq(401)
   end
