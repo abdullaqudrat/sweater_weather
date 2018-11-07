@@ -1,5 +1,9 @@
 class Api::V1::FavoritesController < ApplicationController
 
+  def index
+    render json: @current_user.favorites
+  end
+
   def create
     location = request.headers['location']
     # forecast = ForecastFacade.new(location).get_forecast
