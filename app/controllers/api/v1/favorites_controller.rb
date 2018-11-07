@@ -14,4 +14,15 @@ class Api::V1::FavoritesController < ApplicationController
     end
   end
 
+  def destroy
+    location = request.headers['location']
+    favorite = @current_user.favorites.find_by_location(location)
+    if favorite
+      favorite.destroy
+      render json: FavoritesFacade.new(@current_user.favorites).get_favorites_and_forecast
+    else
+      render json: {error: 'favorite does not exist'}, status: 400
+    end
+  end
+
 end
