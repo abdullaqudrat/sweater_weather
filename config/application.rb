@@ -29,5 +29,8 @@ module SweaterWeather
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    #added for authentication(JWT gem)
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
