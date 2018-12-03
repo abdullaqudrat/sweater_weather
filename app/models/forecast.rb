@@ -1,6 +1,6 @@
 class Forecast
 
-  attr_reader :id, :location, :current_time, :current_temp, :current_feels_like, :current_summary, :later_summary, :current_humidity, :current_visibility, :current_uv_index, :daily, :hourly
+  attr_reader :id, :location, :current_icon, :current_epoch_time, :current_temp, :current_high, :current_low, :current_feels_like, :current_summary, :later_summary, :current_humidity, :current_visibility, :current_uv_index, :daily, :hourly
 
   def initialize(weather, location=nil)
     current = weather[:currently]
@@ -21,7 +21,6 @@ class Forecast
     @raw_daily_array = weather[:daily][:data]
     @daily = []
     @hourly = []
-    binding.pry
     get_daily
     get_hourly
   end
