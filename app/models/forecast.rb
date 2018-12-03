@@ -1,12 +1,13 @@
 class Forecast
 
-  attr_reader :id, :location, :current_icon, :current_epoch_time, :current_temp, :current_high, :current_low, :current_feels_like, :current_summary, :later_summary, :current_humidity, :current_visibility, :current_uv_index, :daily, :hourly
+  attr_reader :id, :location, :current_icon, :current_time, :current_date, :current_temp, :current_high, :current_low, :current_feels_like, :current_summary, :later_summary, :current_humidity, :current_visibility, :current_uv_index, :daily, :hourly
 
   def initialize(weather, location=nil)
     current = weather[:currently]
     today = weather[:daily][:data][0]
     @location = location
-    @current_epoch_time = current[:time] #epoch time
+    @current_time = Time.at(current[:time]).strftime('%I:%M %p') #epoch time
+    @current_date = Time.at(current[:time]).strftime('%A, %b %d') #epoch time
     @current_icon = current[:icon] #description
     @current_temp = current[:temperature] #farenheit
     @current_high = today[:temperatureHigh]
