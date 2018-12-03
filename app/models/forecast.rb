@@ -4,9 +4,13 @@ class Forecast
 
   def initialize(weather, location=nil)
     current = weather[:currently]
+    today = weather[:daily][:data][0]
     @location = location
-    @current_time = current[:time] #epoch time
+    @current_epoch_time = current[:time] #epoch time
+    @current_icon = current[:icon] #description
     @current_temp = current[:temperature] #farenheit
+    @current_high = today[:temperatureHigh]
+    @current_low = today[:temperatureLow]
     @current_feels_like = current[:apparentTemperature] #farenheit
     @current_summary = current[:summary]
     @later_summary = weather[:hourly][:summary]
@@ -17,6 +21,7 @@ class Forecast
     @raw_daily_array = weather[:daily][:data]
     @daily = []
     @hourly = []
+    binding.pry
     get_daily
     get_hourly
   end
