@@ -2,7 +2,7 @@ class Hourly
 
   def initialize(hourly_weather)
     hourly = hourly_weather
-    @hour = hourly[:time] #epoch time
+    @hour = Time.at(hourly[:time]).strftime('%l %p') #epoch time
     @icon = hourly[:icon] #description
     @summary = hourly[:summary]
     @temp = hourly[:temperature] #farenheit

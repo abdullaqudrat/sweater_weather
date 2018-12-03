@@ -2,7 +2,7 @@ class Daily
 
   def initialize(daily_weather)
     daily = daily_weather
-    @day = daily[:time] #epoch time
+    @day = Time.at(daily[:time]).strftime('%A') #epoch time
     @icon = daily[:icon] #description
     @summary = daily[:summary]
     @high_temp = daily[:temperatureHigh] #farenheit
