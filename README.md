@@ -1,8 +1,11 @@
+# Sweater Weather API
+---------------------
+
 Sweater Weather API is built with Ruby on Rails. It supplies endpoints for the user with location/weather/image information sourced from: 
 
-* Google's Geocode API
-* Dark Sky API
-* Flickr API
+### * Google's Geocode API
+### * Dark Sky API
+### * Flickr API
 
 Sweater Weather API was built to provide information for the Sweater Weather App. 
 
@@ -10,11 +13,11 @@ Click [here](https://github.com/abdullaqudrat/sweater_weather_fe) to visit the S
 
 Click [here](https://abdullaqudrat.github.io/sweater_weather_fe/) to visit the live app!
 
-ex requests:
+## Example Requests
 
-WEATHER ENDPOINT
+### WEATHER ENDPOINT
 
-Enter the CITY and STATE as LOCATION params:
+Enter the *CITY* and *STATE* as LOCATION params:
 
 https://fierce-crag-36750.herokuapp.com/api/v1/forecast?location=denver,co
 
@@ -50,9 +53,9 @@ https://fierce-crag-36750.herokuapp.com/api/v1/forecast?location=denver,co
 
 -------------------
 
-BACKGROUND IMAGE ENDPOINT
+### BACKGROUND IMAGE ENDPOINT
 
-Enter the CITY and STATE as LOCATION params:
+Enter the *CITY* and *STATE* as LOCATION params:
 
 https://fierce-crag-36750.herokuapp.com/api/v1/backgrounds?location=denver,co
 
